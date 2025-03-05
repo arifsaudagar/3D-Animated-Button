@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Animated Button 1.1 | Arif Saudagar</title>
-    <link rel="stylesheet" href="/1.1/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Animated Button v1.1</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+  <div class="button-container">
+    <!-- Primary Button -->
+    <button 
+      class="btn-3d primary" 
+      aria-label="Primary button"
+      onclick="createRipple(event)"
+    >
+      Click Me!
+      <span class="tooltip">Hello, I'm a tooltip!</span>
+    </button>
+
+    <!-- Outlined Variant -->
+    <button 
+      class="btn-3d outlined" 
+      style="--primary-color: #4CAF50; --secondary-color: #03A9F4;"
+    >
+      Outlined
+    </button>
+
+    <!-- Ghost Variant -->
+    <button 
+      class="btn-3d ghost" 
+      style="--primary-color: #9C27B0; --secondary-color: #E91E63;"
+    >
+      Ghost
+    </button>
+  </div>
+
+  <script>
+    // Ripple Effect
+    function createRipple(event) {
+      const button = event.currentTarget;
+      const circle = document.createElement("span");
+      const diameter = Math.max(button.clientWidth, button.clientHeight);
+      const radius = diameter / 2;
+
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+      circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+      circle.classList.add("ripple");
+
+      const existingRipple = button.querySelector(".ripple");
+      if (existingRipple) existingRipple.remove();
+
+      button.appendChild(circle);
+    }
+  </script>
 </body>
 </html>
