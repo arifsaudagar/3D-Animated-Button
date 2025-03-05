@@ -1,0 +1,55 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Button Container */
+  .button-container {
+    perspective: 1000px; /* Adds 3D depth effect */
+  }
+  
+  /* Button Styling */
+  .btn-3d {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background: #ff6f61;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transform-style: preserve-3d; /* Ensures child elements maintain 3D space */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 
+      0 8px 15px rgba(0, 0, 0, 0.2), /* Outer shadow */
+      inset 0 4px 6px rgba(255, 255, 255, 0.3); /* Inner highlight */
+  }
+  
+  /* Hover Effect */
+  .btn-3d:hover {
+    transform: translateY(-5px) rotateX(15deg); /* Moves button up and tilts it */
+    box-shadow: 
+      0 12px 20px rgba(0, 0, 0, 0.3), /* Enhanced outer shadow */
+      inset 0 6px 8px rgba(255, 255, 255, 0.4); /* Enhanced inner highlight */
+  }
+  
+  /* Active State (When clicked) */
+  .btn-3d:active {
+    transform: translateY(2px) rotateX(0deg); /* Pushes button down */
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.2), /* Reduced outer shadow */
+      inset 0 2px 4px rgba(255, 255, 255, 0.2); /* Reduced inner highlight */
+  }
